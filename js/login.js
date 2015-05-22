@@ -12,8 +12,9 @@ var loginValidar = function(){
 	
 	  if ( $("#usuario").val() == "" && $("#clave").val() == "" )
    	{
+		 $.mobile.loading('hide');
 	   navigator.notification.alert(
-            'Ingrese usuario y contrase&ntilde;a!',  // message
+            'Complete los campos',  // message
             alertDismissed,         // callback
             'Informaci\u00f3n',            // title
             'Aceptar'                  // buttonName
