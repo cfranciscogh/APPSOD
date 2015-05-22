@@ -1,0 +1,121 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<title>SODIMAC - Pedidos</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/themes/default/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" type="text/css" href="css/themes/default/jquery.mobile.theme-1.4.5.min.css">
+     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <script src="js/funciones.js"></script>    
+</head>
+
+<body >
+
+
+<div data-role="page" class="fondo">
+
+	<div data-role="header" data-position="fixed" data-theme="a">
+		<h1>SODIMAC</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+    
+    	<div data-role="tabs">
+        	<div data-role="navbar">
+            	<ul>
+                	<li class="ui-tabs-active ui-state-active"><a class="ui-btn-active" href="#one" data-theme="a">Detalle</a></li>
+                    <li><a href="#two" data-theme="a">Traking</a></li>
+               </ul>
+            </div>
+           	
+            <div id="one" class="ui-content ui-body ui-body-a">
+            	<h3 class="titulo">OC00001</h3>
+                 <p>
+                Cliente: Francisco Camacho<br>
+                DNI: 12345678<br>
+                BLT:00001 <br>
+                </p>
+                <hr>
+                 <p>
+                Fecha de Entrega: Francisco Camacho<br>
+				Departamento: LIMA<br>
+				Provincia: CALLAO<br>
+                Distrito: BELLAVISTA<br>
+                Direcci&oacute;n: Av. Lima 123<br>
+                Referencia:Crd. 1 y 3 Av. Arequipa <br>
+                Telefono:(01) 234-5678 <br>
+                E-mail:test@gmail.com <br>
+                Observacion: - <br>
+                </p>
+                 <hr>
+                 <h3 >Detalle</h3>
+                 <p>
+                Producto: Camisas ADC<br>
+                SKU: 23SDFSF435EFWF<br>
+                Cantidad:2 <br>
+                </p>
+                
+                 <p>
+                Documento: Boleta de Venta<br>
+                Cantidad:1 <br>
+                </p>
+                
+            </div>
+            
+            <div id="two" class="ui-content ui-body ui-body-a">
+            	<h3 class="titulo">OC00001</h3>
+                
+            
+                <label for="usuario">Tiempo Aprox. de llegada:</label>
+                <input type="time" name="hora" id="hora" value=""  />
+                
+                <label for="slider2">Recepcionado:</label>
+                <select name="slider2" id="slider2" data-role="slider">
+                    <option value="NO">NO</option>
+                    <option value="SI">SI</option>
+                </select>
+                
+                <h4>&iquest;Quien recibio el pedido?</h4>
+                
+                 <label for="usuario">Nombre:</label>
+                <input type="text" name="hora" id="hora" value=""  />
+                
+                 <label for="usuario">DNI:</label>
+                <input type="text" name="hora" id="hora" value=""  />
+                
+                <label for="usuario">Estado:</label>
+                <select name="select-choice-a" id="select-choice-a" data-native-menu="false">
+                    <option>Seleccionar estado</option>
+                    <option value="1">Pendiente</option>
+                    <option value="2">En ruta</option>
+                    <option value="3">No Habido</option>
+                    <option value="4">Entregado</option>
+                </select>
+                
+                <label for="textarea">Observaci&oacute;n:</label>
+<textarea cols="40" rows="2" name="textarea" id="textarea"></textarea>
+                
+                
+                
+            </div>
+            
+        </div>
+         
+                
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<div data-role="navbar" data-iconpos="top">
+		<ul>
+			<li><a href="#" data-icon="check">Guardar</a></li>
+			<li><a data-ajax="false" href="panel.html" data-icon="back">Regresar</a></li>			 
+		</ul>
+	</div><!-- /navbar -->
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+
+</body>
+</html>
