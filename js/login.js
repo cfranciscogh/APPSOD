@@ -33,7 +33,8 @@ var loginValidar = function(){
           resultado = $.parseJSON(data.d);
 		  //console.log(resultado);
 		  if ( resultado.code == 1){
-			   $.mobile.changePage( "panel.html", {transition: "slide", reloadPage:true} );
+			  location.href = "panel.html?idChofer=" + resultado.datos[0].codigo;
+			   //$.mobile.changePage( "panel.html", {changeHash:true,transition: "slide", reloadPage:true, data: "idChofer=" + resultado.datos[0].codigo} );
 		  }
 		  else{
 			   $.mobile.loading('hide');
