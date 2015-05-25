@@ -1,10 +1,14 @@
 // JavaScript Document
 // JavaScript Document
 $(document).ready(function(e) {  
-	getProgramaciones();
+	/*getProgramaciones();
 	$("#actualizar").click(function(e) {
         getProgramaciones();
-    });
+    });*/
+	
+	
+	$("#regresarPanel").attr("href","panel.html?idChofer=" + $.QueryString["idChofer"]);
+	
 });
 
  

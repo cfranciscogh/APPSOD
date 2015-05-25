@@ -8,7 +8,8 @@
      <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/jquery.mobile-1.4.5.min.js"></script>
-    <script src="js/funciones.js"></script>    
+    <script src="js/funciones.js"></script> 
+    <script src="js/detalle.js"></script>      
 </head>
 
 <body >
@@ -109,8 +110,8 @@
 	<div data-role="footer">
 		<div data-role="navbar" data-iconpos="top">
 		<ul>
-			<li><a href="#" data-icon="check">Guardar</a></li>
-			<li><a data-ajax="false" href="panel.html" data-icon="back">Regresar</a></li>			 
+			<li><a data-icon="check">Guardar</a></li>
+			<li><a id="regresarPanel" data-ajax="false" href="panel.html?idChofer=-1" data-icon="back">Regresar</a></li>			 
 		</ul>
 	</div><!-- /navbar -->
 	</div><!-- /footer -->
