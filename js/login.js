@@ -31,7 +31,7 @@ var loginValidar = function(){
         contentType: "application/json; charset=utf-8",
         success : function(data, textStatus, jqXHR) {
           resultado = $.parseJSON(data.d);
-		  //console.log(resultado);
+		  console.log(resultado);
 		  if ( resultado.code == 1){
 			  location.href = "panel.html?idChofer=" + resultado.datos[0].codigo;
 			   //$.mobile.changePage( "panel.html", {changeHash:true,transition: "slide", reloadPage:true, data: "idChofer=" + resultado.datos[0].codigo} );
