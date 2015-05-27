@@ -26,8 +26,8 @@
     	<div data-role="tabs">
         	<div data-role="navbar">
             	<ul>
-                	<li class="ui-tabs-active ui-state-active"><a class="ui-btn-active" href="#one" data-theme="a">Detalle</a></li>
-                    <li><a href="#two" data-theme="a">Traking</a></li>
+                	<li class="ui-tabs-active ui-state-active"><a class="ui-btn-active" href="#one" data-theme="a" style="font-size:16px;">Detalle</a></li>
+                    <li><a href="#two" data-theme="a" style="font-size:16px;">Traking</a></li>
                </ul>
             </div>
            	
@@ -65,33 +65,35 @@
                 <label for="usuario">Tiempo Aprox. de llegada:</label>
                 <input type="time" name="hora" id="hora" value=""  />
                 
-                <label for="slider2">Recepcionado:</label>
-                <select name="slider2" id="slider2" data-role="slider">
-                    <option value="NO">NO</option>
-                    <option value="SI">SI</option>
+                <label for="recepcionado">Recepcionado:</label>
+                <select onChange="valirRecepcion(this)" name="recepcionado" id="recepcionado" data-role="slider">
+                    <option value="0">NO</option>
+                    <option value="1">SI</option>
                 </select>
-                
+                <div class="contentDatos" style="display:none;">
                 <h4>&iquest;Quien recibio el pedido?</h4>
                 
-                 <label for="usuario">Nombre:</label>
-                <input type="text" name="hora" id="hora" value=""  />
+                 <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" id="nombre" value=""  />
                 
-                 <label for="usuario">DNI:</label>
-                <input type="text" name="hora" id="hora" value=""  />
-                
-                <label for="usuario">Estado:</label>
-                <select name="select-choice-a" id="select-choice-a" data-native-menu="false">
-                    <option>Seleccionar estado</option>
-                    <option value="1">Pendiente</option>
-                    <option value="2">En ruta</option>
+                 <label for="dni">DNI:</label>
+                <input type="text" name="dni" id="dni" value=""  />
+                </div>
+                <label for="estado">Estado:</label>
+                <select name="estado" id="estado" data-native-menu="false">
+                    <!--<option>Seleccionar estado</option>-->
+                    <option selected value="1">Pendiente</option>
                     <option value="3">No Habido</option>
-                    <option value="4">Entregado</option>
+                    <!--<option value="2">En ruta</option>
+                    
+                    <option value="4">Entregado</option>-->
                 </select>
                 
-                <label for="textarea">Observaci&oacute;n:</label>
-<textarea cols="40" rows="2" name="textarea" id="textarea"></textarea>
                 
-                
+                <label for="observacion">Observaci&oacute;n:</label>
+<textarea cols="40" rows="2" name="observacion" id="observacion"></textarea>
+                <input type="hidden" value="0" id="IDTranking" name="IDTranking" />
+                <input type="hidden" value="0" id="IDPedido" name="IDPedido" />
                 
             </div>
             
@@ -103,7 +105,7 @@
 	<div data-role="footer">
 		<div data-role="navbar" data-iconpos="top">
 		<ul>
-			<li><a data-icon="check">Guardar</a></li>
+			<li><a id="guardarTracking" data-icon="check">Guardar</a></li>
 			<li><a id="regresarPanel" data-ajax="false" href="panel.html?idChofer=-1" data-icon="back">Regresar</a></li>			 
 		</ul>
 	</div><!-- /navbar -->
