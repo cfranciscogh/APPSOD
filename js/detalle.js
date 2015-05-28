@@ -2,15 +2,14 @@
 var  latitude = "";
 var longitude = "";
 function onSuccess(position) {
-   latitude =position.coords.latitude;
+   latitude = position.coords.latitude;
    longitude = position.coords.longitude;
 }
 
 // onError Callback receives a PositionError object
 //
 function onError(error) {
-    alert('code: '    + error.code    + '\n' +
-          'message: ' + error.message + '\n');
+    console.log('code: '    + error.code    + '\n' + 'message: ' + error.message + '\n');
 }
 
 $(document).ready(function(e) { 
@@ -61,7 +60,7 @@ $(document).ready(function(e) {
 	parametros.Latitud = latitude;	
 	parametros.Longitud = longitude;	
 	
-	//console.log(parametros);
+	console.log(parametros);
 	//return;
 		
 	$.mobile.loading('show'); 
@@ -76,14 +75,11 @@ $(document).ready(function(e) {
 			resultado = $.parseJSON(data.d);
 			$.mobile.loading('hide');
 			 if ( resultado.code == 1){
-				 alert(resultado.message);
 				 $("#IDTranking").val(resultado.codigo);	
-				 //alerta(resultado.message);
-			 }
-			 else{
-				 alert(resultado.message);
-				 //alerta(resultado.message);
-			 }
+				 setTracking($("#IDPedido").val());
+			 }			 
+			 alert(resultado.message);
+			 //alerta(resultado.message);
         },
 
         error : function(jqxhr) 
@@ -113,11 +109,13 @@ function setTracking(idPedido){
 	$.ajax({
         url : "http://www.meridian.com.pe/ServiciosWEB/TransportesMeridian/Sodimac/Pedido/WSPedido.asmx/ObtenerTraking",
         type: "POST",
+		cache: false,
 		//crossDomain: true,
         dataType : "json",
         data : '{"IDPedido":"'+idPedido+'"}',
 		contentType: "application/json; charset=utf-8",
         success : function(data, textStatus, jqXHR) {
+			//console.log(data.d);
 			resultado = $.parseJSON(data.d);
 			$.mobile.loading('hide');
 			//console.log(resultado);
@@ -125,20 +123,29 @@ function setTracking(idPedido){
 				
 				for (var i = 0; i<resultado.length;i++){
 					$("#hora").val(resultado[i].TiempoAproxLlegadaFormat);
-		 		 	/*$(".cliente").html(resultado[i].NombreCliente);
-					$(".dni").html(resultado[i].DocumentoCliente);
-					$(".blt").html(resultado[i].BLT_FME);
-					$(".fch_entrega").html(resultado[i].FechaEntregaFormat);
-					$(".provincia").html(resultado[i].NomProvincia);
-					$(".distrito").html(resultado[i].NomDistrito);
-					$(".direccion").html(resultado[i].DireccionEntrega);
-					$(".referencia").html(resultado[i].Referencia);
-					$(".telefono").html(resultado[i].Telefono);
-					$(".mail").html(resultado[i].Email);
-					$(".observacion").html(resultado[i].Observacion);	*/				
-					 		
+					$("#IDTranking").val(resultado[i].IDTraking);
+					$("#IDPedido").val(resultado[i].IDPedido);
+					$("#observacion").val(resultado[i].Observacion.trim());
+					if (resultado[i].Recepcionado){
+						$("#recepcionado").val(1);
+						$("#recepcionado").slider('refresh');
+						$(".contentDatos").slideDown("fast");
+						$("#nombre").val(resultado[i].Nombre.trim());
+						$("#dni").val(resultado[i].DNI.trim());
+					}
+					
+					$("#estado").html("");
+					$("#estado").append("<option selected value='"+resultado[i].IDEstado+"'>"+resultado[i].Estado+"</option>");
+					
+					if ( resultado[i].IDEstado == 2 ) {
+						$("#estado").append("<option value='3'>NO HABIDO</option>");
+					}
+					
+					$("#estado").selectmenu( "refresh" )		
 					break;
 				}
+			}
+			else{
 			}
         },
 

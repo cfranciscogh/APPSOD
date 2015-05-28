@@ -1,6 +1,7 @@
 // JavaScript Document
 
 (function($) {
+	$.ajaxSetup({ cache: false });
     $.QueryString = (function(a) {
         if (a == "") return {};
         var b = {};
