@@ -24,8 +24,8 @@ $(document).ready(function(e) {
 	$("#guardarTracking").click(function(e) {
         e.preventDefault();
 		if ( $("#hora").val() == "" ){
-			alert("Ingrese Tiempo Aprox. de llegada");
-			//alerta("Ingrese Tiempo Aprox. de llegada");
+			//alert("Ingrese Tiempo Aprox. de llegada");
+			alerta("Ingrese Tiempo Aprox. de llegada");
 			$("#hora").focus();
 			return;
 		}
@@ -33,15 +33,15 @@ $(document).ready(function(e) {
 		if ( $("#recepcionado").val() == 1 ){
 			
 			if ( $("#nombre").val() == "" ){
-			alert("Ingrese Nombre");
-			//alerta("Ingrese Nombre");
+			//alert("Ingrese Nombre");
+			alerta("Ingrese Nombre");
 			$("#nombre").focus();
 			return;
 			}
 			
 			if ( $("#dni").val() == "" ){
-			alert("Ingrese DNI");
-			//alerta("Ingrese DNI");
+			//alert("Ingrese DNI");
+			alerta("Ingrese DNI");
 			$("#dni").focus();
 			return;
 			}
@@ -60,7 +60,7 @@ $(document).ready(function(e) {
 	parametros.Latitud = latitude;	
 	parametros.Longitud = longitude;	
 	
-	console.log(parametros);
+	//console.log(parametros);
 	//return;
 		
 	$.mobile.loading('show'); 
@@ -78,8 +78,8 @@ $(document).ready(function(e) {
 				 $("#IDTranking").val(resultado.codigo);	
 				 setTracking($("#IDPedido").val());
 			 }			 
-			 alert(resultado.message);
-			 //alerta(resultado.message);
+			 //alert(resultado.message);
+			 alerta(resultado.message);
         },
 
         error : function(jqxhr) 
