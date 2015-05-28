@@ -33,8 +33,19 @@ function getProgramaciones(){
 			if ( resultado.length > 0 ){
 				$("#contentProgramaciones").find("h3").remove();
 				$("#contentProgramaciones").find("form, ul").fadeIn("fast");
+				var count = 0;
 				for (var i = 0; i<resultado.length;i++){
-		 		$("#listProgramacion").append('<li><a data-ajax="false" href="detalle.html?IDPedido='+resultado[i].IDPedido+'&idChofer='+$.QueryString["idChofer"]+'">'+ resultado[i].NroOrdenCompra + ' - ' + resultado[i].NombreCliente +'</a></li> ');
+					if ( resultado[i].IDEstado == 3 || resultado[i].IDEstado == 4 )
+		 				$("#listProgramacion").append('<li data-icon="check"><a>'+ resultado[i].NroOrdenCompra + ' - ' + resultado[i].NombreCliente +'</a></li> ');
+					else {
+						if (count==0)
+						$("#listProgramacion").append('<li><a data-ajax="false" href="detalle.html?IDPedido='+resultado[i].IDPedido+'&idChofer='+$.QueryString["idChofer"]+'">'+ resultado[i].NroOrdenCompra + ' - ' + resultado[i].NombreCliente +'</a></li> ');
+						else
+							$("#listProgramacion").append('<li data-icon="false"><a>'+ resultado[i].NroOrdenCompra + ' - ' + resultado[i].NombreCliente +'</a></li> ');
+							
+							count++;
+					}
+					
 				}
 				$( "#listProgramacion" ).listview( "refresh" );
 			}
@@ -42,7 +53,6 @@ function getProgramaciones(){
 				$("#contentProgramaciones").find("form, ul").fadeOut("fast");
 				$("#contentProgramaciones").find("h3").remove();
 				$("#contentProgramaciones").append("<h3>No se encontraron programaci&oacute;nes para el dia de hoy</h3>");
-				//Mensaje
 			}
         },
 
