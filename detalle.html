@@ -8,6 +8,13 @@
      <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="css/jqm-datebox.min.css">  
+    <script type='text/javascript' src="js/jqm-datebox.core.min.js"></script>    
+    <!--<script type='text/javascript' src="js/jqm-datebox.mode.calbox.min.js"></script>   --> 
+    <script type='text/javascript' src="js/jqm-datebox.mode.datebox.min.js"></script>    
+    <!--<script type='text/javascript' src="js/jqm-datebox.mode.flipbox.min.js"></script>-->
+      <script type="text/javascript" src="js/jquery.mobile.datebox.i18n.es-ES.utf8.js"></script>
     <script src="js/funciones.js"></script> 
     <script src="js/detalle.js"></script>      
 </head>
@@ -63,7 +70,7 @@
                 
             
                 <label for="usuario">Tiempo Aprox. de llegada:</label>
-                <input type="time" name="hora" id="hora" value=""  />
+                <input type="time" name="hora" id="hora" value=""  data-role="datebox" data-options='{"mode":"timebox", "useNewStyle":true, "overrideTimeFormat": 12}' />
                 
                 <label for="recepcionado">Recepcionado:</label>
                 <select onChange="valirRecepcion(this)" name="recepcionado" id="recepcionado" data-role="slider">
