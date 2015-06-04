@@ -28,7 +28,7 @@ function getProgramaciones(){
 		contentType: "application/json; charset=utf-8",
         success : function(data, textStatus, jqXHR) {
 		resultado = $.parseJSON(data.d);
-			console.log(resultado);
+			//console.log(resultado);
 			$.mobile.loading('hide');
 			if ( resultado.length > 0 ){
 				$("#contentProgramaciones").find("h3").remove();

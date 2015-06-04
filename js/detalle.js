@@ -122,7 +122,8 @@ function setTracking(idPedido){
 			if ( resultado.length > 0 ){
 				
 				for (var i = 0; i<resultado.length;i++){
-					$("#hora").val(resultado[i].TiempoAproxLlegadaFormat);
+					
+					
 					$("#IDTranking").val(resultado[i].IDTraking);
 					$("#IDPedido").val(resultado[i].IDPedido);
 					$("#observacion").val(resultado[i].Observacion.trim());
@@ -139,6 +140,12 @@ function setTracking(idPedido){
 					
 					if ( resultado[i].IDEstado == 2 ) {
 						$("#estado").append("<option value='3'>NO HABIDO</option>");
+					}
+					
+					if ( resultado[i].IDEstado > 1 ) {
+						$("#DIVEstado").fadeIn("fast");
+						$("#DIVRecepcionado").fadeIn("fast");
+						$("#hora").val(resultado[i].TiempoAproxLlegadaFormat);
 					}
 					
 					$("#estado").selectmenu( "refresh" )		

@@ -69,14 +69,19 @@
             	<h3 class="titulo">OC00001</h3>
                 
             
-                <label for="usuario">Tiempo Aprox. de llegada:</label>
-                <input type="time" name="hora" id="hora" value=""  data-role="datebox" data-options='{"mode":"timebox", "useNewStyle":true, "overrideTimeFormat": 12}' />
+                <label for="hora">Tiempo Aprox. de llegada:</label>
+                <input type="text" readonly name="hora" id="hora" data-role="datebox" data-options='{"mode":"timebox", "useNewStyle":true, "overrideTimeFormat": 12}' />
                 
+                
+                
+                <div id="DIVRecepcionado" style="display:none">
                 <label for="recepcionado">Recepcionado:</label>
                 <select onChange="valirRecepcion(this)" name="recepcionado" id="recepcionado" data-role="slider">
                     <option value="0">NO</option>
                     <option value="1">SI</option>
                 </select>
+                </div>
+                
                 <div class="contentDatos" style="display:none;">
                 <h4>&iquest;Quien recibio el pedido?</h4>
                 
@@ -84,18 +89,20 @@
                 <input type="text" name="nombre" id="nombre" value=""  />
                 
                  <label for="dni">DNI:</label>
-                <input type="number" name="dni" id="dni" value="" pattern="[0-9]*"/>
+                <input type="number" name="dni" id="dni" maxlength="8" size="8" value="" pattern="[0-9]*"/>
                 </div>
+               
+               
+               	<div id="DIVEstado" style="display:none">
                 <label for="estado">Estado:</label>
                 <select name="estado" id="estado" data-native-menu="false">
                     <!--<option>Seleccionar estado</option>-->
                     <option selected value="1">Pendiente</option>
+                    <!--<option value="2">En ruta</option> -->
                     <!--<option value="3">No Habido</option>-->
-                    <!--<option value="2">En ruta</option>
-                    
-                    <option value="4">Entregado</option>-->
+                    <!--<option value="4">Entregado</option>-->
                 </select>
-                
+                </div>
                 
                 <label for="observacion">Observaci&oacute;n:</label>
 <textarea rows="2" name="observacion" id="observacion"></textarea>
