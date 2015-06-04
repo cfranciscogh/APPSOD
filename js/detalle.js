@@ -121,9 +121,8 @@ function setTracking(idPedido){
 			//console.log(resultado);
 			if ( resultado.length > 0 ){
 				
-				for (var i = 0; i<resultado.length;i++){
-					
-					
+				for (var i = 0; i<resultado.length;i++){					
+					//$(".titulo").val(resultado[i].IDTraking);
 					$("#IDTranking").val(resultado[i].IDTraking);
 					$("#IDPedido").val(resultado[i].IDPedido);
 					$("#observacion").val(resultado[i].Observacion.trim());
@@ -197,6 +196,7 @@ function setPedido(idPedido){
 				
 				for (var i = 0; i<resultado.length;i++){
 					$(".oc").html(resultado[i].NroOrdenCompra);
+					$(".titulo").html(resultado[i].NroOrdenCompra);
 		 		 	$(".cliente").html(resultado[i].NombreCliente);
 					$(".dni").html(resultado[i].DocumentoCliente);
 					$(".blt").html(resultado[i].BLT_FME);
