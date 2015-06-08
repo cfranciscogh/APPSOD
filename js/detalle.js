@@ -275,9 +275,12 @@ function alerta(mensaje){
 	 navigator.notification.alert(
             mensaje,  // message
             alertDismissed,         // callback
-            titulo,            // title
+           'Informaci\u00f3n',            // title
             'Aceptar'                  // buttonName
         	);
 	
 }
 
+
+function alertDismissed(){
+}
