@@ -12,14 +12,39 @@ function onError(error) {
     alerta('code: '    + error.code    + '\n' + 'message: ' + error.message + '\n');
 }
 
-$(document).ready(function(e) { 
+document.addEventListener("deviceready", onDeviceReady, false);
+var watchID = null;
+
+
+function onSuccessA(position) {
+        var element = document.getElementById('geolocation');
+        element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
+                            'Longitude: '          + position.coords.longitude             + '<br />' +
+                            'Altitude: '           + position.coords.altitude              + '<br />' +
+                            'Accuracy: '           + position.coords.accuracy              + '<br />' +
+                            'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
+                            'Heading: '            + position.coords.heading               + '<br />' +
+                            'Speed: '              + position.coords.speed                 + '<br />' +
+                            'Timestamp: '          + position.timestamp                    + '<br />';
+    }
+
+    // onError Callback receives a PositionError object
+    //
+    function onErrorA(error) {
+        alert('code: '    + error.code    + '\n' +
+              'message: ' + error.message + '\n');
+    }
+	
+	
+function onDeviceReady() {
 
 	setPedido($.QueryString["IDPedido"]);
 	setTracking($.QueryString["IDPedido"]);
 	$("#IDPedido").val($.QueryString["IDPedido"]);
 	$("#regresarPanel").attr("href","panel.html?idChofer=" + $.QueryString["idChofer"]);
 	
-	var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 30000 });
+	watchID = navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 30000 });
+	navigator.geolocation.getCurrentPosition(onSuccessA, onErrorA);
 	
 	$("#guardarTracking").click(function(e) {
         e.preventDefault();
@@ -95,7 +120,7 @@ $(document).ready(function(e) {
 		
     });
 	
-});
+};
 
 
 
