@@ -9,7 +9,7 @@ function onSuccess(position) {
 // onError Callback receives a PositionError object
 //
 function onError(error) {
-    console.log('code: '    + error.code    + '\n' + 'message: ' + error.message + '\n');
+    alerta('code: '    + error.code    + '\n' + 'message: ' + error.message + '\n');
 }
 
 $(document).ready(function(e) { 
