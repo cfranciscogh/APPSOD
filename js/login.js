@@ -4,7 +4,7 @@ $(document).ready(function(e) {
     	$("#ingresar").click(function(e) {
             e.preventDefault();
 			$.mobile.loading('show');
-			setTimeout(loginValidar, 1000);
+			setTimeout(loginValidar, 500);
         });
 });
 
@@ -53,6 +53,7 @@ var loginValidar = function(){
 
         error : function(jqxhr) 
         {
+			$.mobile.loading('hide');
            navigator.notification.alert(
             'Error de conexi\u00f3n, contactese con sistemas!',  // message
             alertDismissed,         // callback
