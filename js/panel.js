@@ -35,7 +35,7 @@ function getProgramaciones(){
 				$("#contentProgramaciones").find("form, ul").fadeIn("fast");
 				var count = 0;
 				for (var i = 0; i<resultado.length;i++){
-					if ( resultado[i].IDEstado == 3 || resultado[i].IDEstado == 4 )
+					if ( resultado[i].IDEstado == 3 || resultado[i].IDEstado == 4  || resultado[i].IDEstado == 5 )
 		 				$("#listProgramacion").append('<li data-icon="check"><a>'+ resultado[i].NroOrdenCompra + ' - ' + resultado[i].NombreCliente +'</a></li> ');
 					else {
 						if (count==0)

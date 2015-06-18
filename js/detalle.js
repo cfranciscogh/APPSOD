@@ -27,6 +27,14 @@ function onDeviceReady() {
 	
 	$("#guardarTracking").click(function(e) {
         e.preventDefault();
+		
+		if ( latitude == "" ||  longitude == ""){
+			//alert("Ingrese DNI");
+			alerta("No se puede obtener información de ubicación, revise si su GPS se encuentra activo o tenga cobertura de red");
+			return;
+			}
+			
+			
 		if ( $("#hora").val() == "" ){
 			//alert("Ingrese Tiempo Aprox. de llegada");
 			alerta("Ingrese Tiempo Aprox. de llegada");
@@ -56,11 +64,7 @@ function onDeviceReady() {
 			return;
 			}
 			
-			if ( latitude == "" ||  longitude == ""){
-			//alert("Ingrese DNI");
-			alerta("No se puede obtener información de ubicación, revise si su GPS se encuentra activo o que no se encuentre dentro de red de cobertura");
-			return;
-			}
+			
 			
 		}
 		
@@ -154,7 +158,8 @@ function setTracking(idPedido){
 					$("#estado").append("<option selected value='"+resultado[i].IDEstado+"'>"+resultado[i].Estado+"</option>");
 					
 					if ( resultado[i].IDEstado == 2 ) {
-						$("#estado").append("<option value='3'>NO HABIDO</option>");
+						$("#estado").append("<option value='3'>CLIENTE AUSENTE</option>");
+						$("#estado").append("<option value='5'>PENDIENTE DE ENTREGA</option>");
 					}
 					
 					if ( resultado[i].IDEstado > 1 ) {
